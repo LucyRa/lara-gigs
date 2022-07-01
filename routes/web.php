@@ -34,6 +34,9 @@ Route::get('/', [ListingController::class, 'index']);
 */
 Route::get('/listings/create', [ListingController::class, 'create']);
 
+// Store listing data
+Route::post('/listings', [ListingController::class, 'store']);
+
 /*
 | A route to return a single listing, from the listing id
 | defined in the URL.
