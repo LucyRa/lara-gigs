@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -20,28 +21,21 @@ use App\Models\Listing;
 */
 
 /*
-| A route to return all listings from the Listing model -> all()
+| A route to return all listings.
+|
+| Using the ListingController, which in turn calls the
+| Listing model -> in this case the method called will
+| be all
 */
-Route::get('/', function () {
-  return view('listings', [
-    'heading' => 'Latest Listings',
-    'listings' => Listing::all()
-  ]);
-});
+Route::get('/', [ListingController::class, 'index']);
+
 
 /*
-| A route to return a single listing, from the defined id,
-| using the Listing model -> find()
-| 
-| The ID is retrived from the url by the route, and passed to the
-| Listing::find() method as a parameter - find() will then return a 
-| single listing
+| A route to return a single listing, from the listing id
+| defined in the URL.
 |
-| In this expample, the Listing model is bound to the route by defining it 
-| as a function parameter with a variable for the returned data
+| Using the ListingController, which in turn calls the
+| Listing model -> in this case the method called will
+| be show
 */
-Route::get('listings/{listing}', function (Listing $listing) {
-  return view('listing', [
-    'listing' => $listing
-  ]);
-});
+Route::get('listings/{listing}', [ListingController::class, 'show']);
