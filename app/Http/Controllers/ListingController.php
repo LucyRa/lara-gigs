@@ -44,7 +44,13 @@ class ListingController extends Controller
     return view('listings.create');
   }
 
-  // Store listing data
+  /*
+  | Validate the submitted create form values.
+  | Then either return error messages, or proceed with
+  | the creation of a new listing.
+  |
+  | If creation is successful, redirect to the homepage.
+  */
   public function store(Request $request) {
     $formFields = $request->validate([
       'title' => 'required',
