@@ -36,9 +36,12 @@ Route::get('/', function () {
 | The ID is retrived from the url by the route, and passed to the
 | Listing::find() method as a parameter - find() will then return a 
 | single listing
+|
+| In this expample, the Listing model is bound to the route by defining it 
+| as a function parameter with a variable for the returned data
 */
-Route::get('/listings/{id}', function ($id) {
+Route::get('listings/{listing}', function (Listing $listing) {
   return view('listing', [
-    'listing' => Listing::find($id)
+    'listing' => $listing
   ]);
 });
