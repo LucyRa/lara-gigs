@@ -22,16 +22,16 @@ Route::get('/', function () {
   return view('listings', [
     'heading' => 'Latest Listings',
     'listings' => [
-      // [
-      //   'id' => 1,
-      //   'title' => 'Listing 1',
-      //   'description' => 'Lorem ipsum blah blah blah...'
-      // ],
-      // [
-      //   'id' => 2,
-      //   'title' => 'Listing 2',
-      //   'description' => 'Lorem ipsum blah blah blah...'
-      // ]
+      [
+        'id' => 1,
+        'title' => 'Listing 1',
+        'description' => 'Lorem ipsum blah blah blah...'
+      ],
+      [
+        'id' => 2,
+        'title' => 'Listing 2',
+        'description' => 'Lorem ipsum blah blah blah...'
+      ]
     ]
   ]);
 });
