@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,20 +19,26 @@ use Illuminate\Support\Facades\Route;
 | #DELETE
 */
 
+/*
+| A route to return all listings from the Listing model -> all()
+*/
 Route::get('/', function () {
   return view('listings', [
     'heading' => 'Latest Listings',
-    'listings' => [
-      [
-        'id' => 1,
-        'title' => 'Listing 1',
-        'description' => 'Lorem ipsum blah blah blah...'
-      ],
-      [
-        'id' => 2,
-        'title' => 'Listing 2',
-        'description' => 'Lorem ipsum blah blah blah...'
-      ]
-    ]
+    'listings' => Listing::all()
+  ]);
+});
+
+/*
+| A route to return a single listing, from the defined id,
+| using the Listing model -> find()
+| 
+| The ID is retrived from the url by the route, and passed to the
+| Listing::find() method as a parameter - find() will then return a 
+| single listing
+*/
+Route::get('/listings/{id}', function ($id) {
+  return view('listing', [
+    'listing' => Listing::find($id)
   ]);
 });
