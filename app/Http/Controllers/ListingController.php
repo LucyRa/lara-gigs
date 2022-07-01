@@ -30,3 +30,16 @@ class ListingController extends Controller
     ]);
   }
 }
+
+/*
+|-------------------------------------------------------------------------
+| Common Resource Routes (Naming convension)
+-------------------------------------------------------------------------
+| index => Show all listings
+| show => Show single listing
+| create => Show form to create a new listing
+| store => Store a new listing
+| edit => Show for to edit a listing
+| update => Update a listing
+| destroy => Delete a listing
+*/
