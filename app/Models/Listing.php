@@ -10,7 +10,8 @@ class Listing extends Model
   use HasFactory;
 
   /*
-  | Define the columns that can be massasigned
+  | Define the columns that can be massasigned by
+  | adding them to the $fillable property
   */
   protected $fillable = ['title', 'company', 'location', 'website', 'email', 'tags', 'description'];
 
