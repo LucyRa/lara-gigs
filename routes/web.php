@@ -29,6 +29,12 @@ use App\Models\Listing;
 */
 Route::get('/', [ListingController::class, 'index']);
 
+/*
+| A route to return the Create Listing form view
+|
+| Using the ListingController
+*/
+Route::get('/listings/create', [ListingController::class, 'create']);
 
 /*
 | A route to return a single listing, from the listing id
