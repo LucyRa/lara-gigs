@@ -10,6 +10,11 @@ class Listing extends Model
   use HasFactory;
 
   /*
+  | Define the columns that can be massasigned
+  */
+  protected $fillable = ['title', 'company', 'location', 'website', 'email', 'tags', 'description'];
+
+  /*
   | Query the listings and refine by those which match a tag or search
   | parameter given in the URL
   |
