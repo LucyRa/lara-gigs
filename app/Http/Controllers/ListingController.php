@@ -50,6 +50,9 @@ class ListingController extends Controller
   | the creation of a new listing.
   |
   | If creation is successful, redirect to the homepage.
+  |
+  | - Rule::unique -> Validation class::method from Laravel
+  | - ::create -> Factory method from Laravel
   */
   public function store(Request $request) {
     $formFields = $request->validate([
