@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+| API Route to return 'Posts' data as a JSON object (no middleware)
+*/
+Route::get('/posts', function () {
+  return response()->json([
+    'posts' => [
+      [
+          'title' => 'Post 1'
+      ]
+    ]
+  ]);
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
