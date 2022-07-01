@@ -7,17 +7,15 @@ use App\Models\Listing;
 
 /*
 |-------------------------------------------------------------------------
-| Web Routes
-|-------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-| #GET
-| #POST
-| #PUT
-| #DELETE
+| Common Resource Routes (Naming convension)
+-------------------------------------------------------------------------
+| index => Show all listings
+| show => Show single listing
+| create => Show form to create a new listing
+| store => Store a new listing
+| edit => Show for to edit a listing
+| update => Update a listing
+| destroy => Delete a listing
 */
 
 /*
