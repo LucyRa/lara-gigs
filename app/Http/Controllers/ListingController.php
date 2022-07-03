@@ -19,7 +19,7 @@ class ListingController extends Controller
   | -- Adding the filter() method, with request(['tag', 'search']) as
   |    a parameter, will return all listings that have
   |    the defined tag or have a title/description/tag value which is
-  |    like the tag/search parameter
+  |    like the tag/search parameter (see Model->Listing->scopeFilter)
   */
   public function index() {
     return view('listings.index', [
@@ -67,6 +67,7 @@ class ListingController extends Controller
 
     Listing::create($formFields);
 
-    return redirect('/');
+    // Redirect with a flash message
+    return redirect('/')->with('message', 'Listing created successfully');
   }
 }
