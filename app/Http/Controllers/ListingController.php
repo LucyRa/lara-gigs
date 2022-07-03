@@ -86,10 +86,19 @@ class ListingController extends Controller
     return redirect('/')->with('message', 'Listing created successfully');
   }
 
+  /*
+  | Return the edit listing view, populated with the defined listing data
+  */
   public function edit(Listing $listing) {
     return view('listings.edit', ['listing' => $listing]);
   }
 
+  /*
+  | When the edit listing form is submitted, validate the values
+  | and then perform an update() to update the database values for
+  | the listing.
+  | Then return to the listing view, with a success message.
+  */
   public function update(Request $request, Listing $listing) {
     $formFields = $request->validate([
       'title' => 'required',
@@ -120,7 +129,10 @@ class ListingController extends Controller
     return back()->with('message', 'Listing updated successfully');
   }
 
-  // Delete
+  /*
+  | Take in the current listing, and delete() the database entry.
+  | Then redirect to the home page with a success message.
+  */
   public function destroy(Listing $listing) {
     $listing->delete();
 
