@@ -38,12 +38,25 @@ Route::get('/listings/create', [ListingController::class, 'create']);
 Route::post('/listings', [ListingController::class, 'store']);
 
 /*
-| A route to return the Edit listing form view
+| A route to return the Edit listing form view, using the ID defined in the
+| URL to call the relevant listing entry
 */
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
 
+/*
+| A route to update a listing when it's edit form is submitted.
+|
+| Using the ListingController, which in turn validates the new values
+| before updating the listings database entry.
+*/
 Route::put('/listings/{listing}', [ListingController::class, 'update']);
 
+/*
+| A route to delete a listing when the delete entry button is clicked.
+|
+| Using the ListingController, which in turn calls the laravel delete() method
+| to drop the listings database entry.
+*/
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
 
 /*
