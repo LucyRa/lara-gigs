@@ -20,6 +20,9 @@ class ListingController extends Controller
   |    a parameter, will return all listings that have
   |    the defined tag or have a title/description/tag value which is
   |    like the tag/search parameter (see Model->Listing->scopeFilter)
+  |
+  | Paginate will return a complex pagination
+  | simplaePaginate will return next previous pagination
   */
   public function index() {
     return view('listings.index', [
