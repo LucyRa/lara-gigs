@@ -85,4 +85,45 @@ class ListingController extends Controller
     // Redirect with a flash message
     return redirect('/')->with('message', 'Listing created successfully');
   }
+
+  public function edit(Listing $listing) {
+    return view('listings.edit', ['listing' => $listing]);
+  }
+
+  public function update(Request $request, Listing $listing) {
+    $formFields = $request->validate([
+      'title' => 'required',
+      'company' => 'required',
+      'location' => 'required',
+      'website' => 'required',
+      'email' => ['required', 'email'],
+      'tags' => 'required',
+      'description' => 'required'
+    ]);
+
+    /*
+    | If the form submission contains a logo file, then
+    | store the file in the defined location
+    | (see config -> filesystems)
+    |
+    | php artisan storage:link -> will create symlinks to
+    | make the files publicly available
+    */
+    if($request->hasFile('logo')) {
+      $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+    }
+
+    // Update the current listing
+    $listing->update($formFields);
+
+    // Redirect back to the listing entry with a flash message
+    return back()->with('message', 'Listing updated successfully');
+  }
+
+  // Delete
+  public function destroy(Listing $listing) {
+    $listing->delete();
+
+    return redirect('/')->with('message', 'Listings deleted successfully');
+  }
 }

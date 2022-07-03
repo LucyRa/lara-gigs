@@ -38,6 +38,15 @@ Route::get('/listings/create', [ListingController::class, 'create']);
 Route::post('/listings', [ListingController::class, 'store']);
 
 /*
+| A route to return the Edit listing form view
+*/
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+
+/*
 | A route to return a single listing, from the listing id
 | defined in the URL.
 |
