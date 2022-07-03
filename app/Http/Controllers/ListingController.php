@@ -68,6 +68,18 @@ class ListingController extends Controller
       'description' => 'required'
     ]);
 
+    /*
+    | If the form submission contains a logo file, then
+    | store the file in the defined location
+    | (see config -> filesystems)
+    |
+    | php artisan storage:link -> will create symlinks to
+    | make the files publicly available
+    */
+    if($request->hasFile('logo')) {
+      $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+    }
+
     Listing::create($formFields);
 
     // Redirect with a flash message
